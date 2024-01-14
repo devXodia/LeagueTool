@@ -8,15 +8,11 @@ import { Observable, lastValueFrom} from 'rxjs';
 export class ApiServiceService {
   constructor(private http: HttpClient) {}
 
-  // TYPE IN SERACH BAR THIS NAME: XΦDIA#1337 TO MAKE THE API CALL POSSIBLE. 
-
-  // URL IN BROWSER SHOULD BE: https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/XΦDIA/1337?api_key=RGAPI-65324bcf-0e42-41b5-80c7-5af7f3f6b490
-
   summonerName: string = '';
   tag: string = '';
   puuid: string = '';
   json:any;
-  DEV_API_KEY: string = 'RGAPI-65324bcf-0e42-41b5-80c7-5af7f3f6b490';
+  DEV_API_KEY: string = '';
 
   async getRiotId() {
     try {
