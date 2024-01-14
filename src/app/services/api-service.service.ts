@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +18,10 @@ export class ApiServiceService {
     try {
       console.log('trying..')
       const url = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${this.summonerName}/${this.tag}?api_key=${this.DEV_API_KEY}`;
-      const data = await this.http.get(url)
-      this.json = data;
+      let data = this.http.get(url) ;
+      this.json = data
       console.log(this.json)
+      console.log('done')
     } catch (e) {
       console.log(e);
     }
