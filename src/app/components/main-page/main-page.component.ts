@@ -20,9 +20,9 @@ export class MainPageComponent {
 
   giveServiceData(){
     const split = this.name.split('#');
-    this.api.summonerName = split[0];
-    this.api.tag = split[1];
-    this.result$ = this.api.getRiotId()
+/*     this.api.summonerName = split[0];
+    this.api.tag = split[1]; */
+    this.result$ = this.api.getRiotId("XΦDIA", "1337")
     this.result$?.subscribe((val: string) => {
       console.log(val)
     })

@@ -12,12 +12,13 @@ export class ApiServiceService {
   tag: string = '';
   puuid: string = '';
   json:any;
-  DEV_API_KEY: string = '';
+  DEV_API_KEY: string = 'RGAPI-a8e0008d-fae8-48ec-be6a-78c514c206cd';
 
-  getRiotId(): Observable<any> {
+  getRiotId(summonerName:string, tag:string): Observable<any> {
     
       console.log('trying..');
-      const url = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${this.summonerName}/${this.tag}?api_key=${this.DEV_API_KEY}`;
+      console.log(summonerName, tag, 'TEST')
+      const url = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${summonerName}/${tag}?api_key=${this.DEV_API_KEY}`;
   
       return this.http.get(url)
     
