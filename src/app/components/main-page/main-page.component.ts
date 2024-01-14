@@ -1,32 +1,38 @@
 import { Component } from '@angular/core';
 import { ApiServiceService } from '../../services/api-service.service';
-import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 import { Observable } from 'rxjs';
+import { AccountData } from '../../Interfaces/accountData.interface';
+
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
+
+
+
 export class MainPageComponent {
 
   name:string= '';
+  summonerName = '';
   tag:string='';
-  result$?: Observable<any>
+  accountJSON: AccountData | undefined;
 
   constructor(private api:ApiServiceService){
 
   }
 
-  giveServiceData(){
-    const split = this.name.split('#');
-/*     this.api.summonerName = split[0];
-    this.api.tag = split[1]; */
-    this.result$ = this.api.getRiotId("XΦDIA", "1337")
-    this.result$?.subscribe((val: string) => {
-      console.log(val)
-    })
+  async giveServiceData(){
+    this.splitName();
+    await this.api.getRiotId(this.summonerName, this.tag);
+    this.accountJSON = this.api.accountJSON;
   }
 
+  splitName(){
+    const split = this.name.split('#');
+    this.summonerName = split[0];
+    this.tag = split[1];
+  }
 
 }
