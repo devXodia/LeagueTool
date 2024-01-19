@@ -25,7 +25,7 @@ export class MainPageComponent {
 
   async giveServiceData(){
     this.splitName();
-    await this.api.getRiotId(this.summonerName, this.tag);
+    await this.api.getPUUID(this.summonerName, this.tag);
     this.accountJSON = this.api.accountJSON;
   }
 
