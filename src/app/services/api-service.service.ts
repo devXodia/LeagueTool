@@ -11,21 +11,33 @@ export class ApiServiceService {
 
   summonerName: string = '';
   tag: string = '';
-  puuid: string = '';
+  puuid: string | AccountData = '';
   summonerID: string = ''
   accountJSON: any;
   DEV_API_KEY: string = '';
-  URL_GET_PUUID: string = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${this.summonerName}/${this.tag}?api_key=${this.DEV_API_KEY}`
-  URL_GET_SUMMONERID: string = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${this.puuid}?api_key=${this.DEV_API_KEY} `
-  URL_GET_RANKED_DATA: string = `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.summonerID}?api_key=${this.DEV_API_KEY}`
-  URL_GET_MATCHES_DATA: string = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.puuid}/ids?api_key=${this.DEV_API_KEY}`
+  URL_GET_PUUID: string = '';
+  URL_GET_SUMMONERID: string = '';
+  URL_GET_RANKED_DATA: string = '';
+  URL_GET_MATCHES_DATA: string = '';
+  urlsAssigned: boolean = false;
   /* URL_GET_SINGLE_MATCH: string = `https://europe.api.riotgames.com/lol/match/v5/matches/${this.match}?api_key=${this.DEV_API_KEY}` */
 
 
-  async callApi(url:string, summonerName?:string){
+  async callApi(url:string){
+    if(!this.urlsAssigned){
+      this.initURLS();
+    }
     const destination = url;
     const data = await lastValueFrom(this.http.get(destination));
     return data
+  }
+
+  initURLS(){
+    this.URL_GET_PUUID = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${this.summonerName}/${this.tag}?api_key=${this.DEV_API_KEY}`
+    this.URL_GET_SUMMONERID = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${this.puuid}?api_key=${this.DEV_API_KEY}`
+    this.URL_GET_RANKED_DATA = `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.summonerID}?api_key=${this.DEV_API_KEY}`
+    this.URL_GET_MATCHES_DATA = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.puuid}/ids?api_key=${this.DEV_API_KEY}`
+    this.urlsAssigned = true;
   }
 
   /* THE URL BELOW IS FOR GETTING LIVE GAME DATA. CURRENTLY TESTING API CALLS */

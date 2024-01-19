@@ -27,12 +27,11 @@ export class MainPageComponent {
     this.splitName();
     this.api.summonerName = this.summonerName;
     this.api.tag = this.tag
-    const puuid = await this.api.callApi(this.api.URL_GET_PUUID);
-    console.log(puuid)
-    const id = await this.api.callApi(this.api.URL_GET_SUMMONERID);
-    console.log(id)
-    const rankedData = await this.api.callApi(this.api.URL_GET_RANKED_DATA)
-    console.log(rankedData)
+    this.api.initURLS();
+    const puuidData = await this.api.callApi(this.api.URL_GET_PUUID) as AccountData;
+    console.log(puuidData.puuid)
+    this.api.puuid = puuidData.puuid
+    const summoner_ID = 
     this.accountJSON = this.api.accountJSON;
   }
 
