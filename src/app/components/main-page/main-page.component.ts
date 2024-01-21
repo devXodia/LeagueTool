@@ -23,22 +23,36 @@ export class MainPageComponent {
 
   }
 
-  async giveServiceData(){
+  async initSummonerSearch(){
     this.splitName();
-    this.api.summonerName = this.summonerName;
-    this.api.tag = this.tag
+    this.assignData();
     this.api.initURLS();
-    const puuidData = await this.api.callApi(this.api.URL_GET_PUUID) as AccountData;
-    console.log(puuidData.puuid)
-    this.api.puuid = puuidData.puuid
-    const summoner_ID = 
-    this.accountJSON = this.api.accountJSON;
+    await this.getPUUID();
+    await this.getSummonerID();
   }
 
   splitName(){
+    if(this.name.includes(" ")){
+      this.name = this.name.replaceAll(' ','')
+    }
     const split = this.name.split('#');
     this.summonerName = split[0];
     this.tag = split[1];
   }
 
+  assignData(){
+    this.api.summonerName = this.summonerName;
+    this.api.tag = this.tag;
+  }
+
+  async getPUUID(){
+    const puuidData = await this.api.callApi(this.api.URL_GET_PUUID) as AccountData;
+    this.api.puuid = puuidData.puuid
+   
+  }
+
+  async getSummonerID(){
+    const summonerID = await this.api.callApi(this.api.URL_GET_SUMMONERID);
+    console.log(summonerID);
+  }
 }
