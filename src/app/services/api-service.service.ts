@@ -12,7 +12,11 @@ export class ApiServiceService {
   summonerName: string = '';
   tag: string = '';
   puuid: string | AccountData = '';
-
+  summonerID: string = ''
+  accountJSON: any;
+  DEV_API_KEY: string = '';
+  URL_GET_PUUID: string = '';
+  URL_GET_SUMMONERID: string = '';
   URL_GET_RANKED_DATA: string = '';
   URL_GET_MATCHES_DATA: string = '';
   urlsAssigned: boolean = false;

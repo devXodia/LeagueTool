@@ -3,6 +3,7 @@ import { ApiServiceService } from '../../services/api-service.service';
 import { Observable } from 'rxjs';
 import { AccountData } from '../../Interfaces/puuid.interface';
 import { SummonerID } from '../../Interfaces/summonerID.interface';
+import { RankedData } from '../../Interfaces/rankedStats.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -23,6 +24,7 @@ export class MainPageComponent {
     this.api.initURLS();
     await this.getPUUID();
     await this.getSummonerID();
+    await this.getRankedStats();
   }
 
   splitName() {
@@ -52,4 +54,9 @@ export class MainPageComponent {
     this.api.summonerID = summonerID.id;
     this.api.initURLS();
   }
+
+  async getRankedStats(){
+    const rankedData = await this.api.callApi(this.api.URL_GET_RANKED_DATA) as RankedData;
+    console.log(rankedData[0].leaguePoints)
+}
 }
