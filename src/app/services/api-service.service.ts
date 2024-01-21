@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, lastValueFrom } from 'rxjs';
-import { AccountData } from '../Interfaces/accountData.interface';
+import { AccountData } from '../Interfaces/puuid.interface';
 
 @Injectable({
   providedIn: 'root',
