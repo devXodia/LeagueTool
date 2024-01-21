@@ -1,19 +1,29 @@
 <div class="main-container">
+  <h1 class="header">
+    Welcome Summoner! This is my League Of Legends Tool! Currently in
+    Development!
+  </h1>
 
+  <div class="interaction-container">
+    <div class="search-container">
+      <input [(ngModel)]="name" class="name" placeholder="SUMMONER#EUW" />
+      <button (click)="initSummonerSearch()" class="search-btn">SEARCH</button>
+    </div>
 
+    <div class="stats-container">
+      @if(loadingDone){
 
-<h1 class="header">Welcome Summoner! This is my League Of Legends Tool! Currently in Development!</h1>
+      <ul>
+        <li>Rank: {{ this.rank }} {{ this.divison }} {{this.lp}} LP</li>
+        <li>Wins: {{ this.wins }}</li>
+        <li>Losses: {{ this.losses}}</li>
+      </ul>
 
+      <ul>
+        <li>Summoner Level: {{ this.summonerLevel }}</li>
+      </ul>
 
-
-<div class="search">
-    <input [(ngModel)]="name" class="name" placeholder="SUMMONER#EUW">
-    <button (click)="initSummonerSearch()" class="search-btn">SEARCH</button>
+      }
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
-</div> 

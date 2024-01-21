@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, lastValueFrom } from 'rxjs';
-import { AccountData } from '../Interfaces/puuid.interface';
+import { PuuidData } from '../Interfaces/puuid.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class ApiServiceService {
 
   summonerName: string = '';
   tag: string = '';
-  puuid: string | AccountData = '';
+  puuid: string | PuuidData = '';
   summonerID: string = ''
   accountJSON: any;
   DEV_API_KEY: string = '';

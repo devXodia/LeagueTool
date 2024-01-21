@@ -21,7 +21,7 @@
     top: 100px;
 }
 
-.search{
+.search-container{
     display: flex;
     height: 4cap;
     
@@ -52,4 +52,27 @@
             font-weight: 600;
         }
     }
+}
+
+.interaction-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.stats-container{
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+   list-style-type: none;
+    }
+    
 }
