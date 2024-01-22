@@ -6,7 +6,7 @@
 
   <div class="interaction-container">
     <div class="search-container">
-      <input [(ngModel)]="name" class="name" placeholder="SUMMONER#EUW" />
+      <input (keyup.enter)="initSummonerSearch()"  [(ngModel)]="name" class="name" placeholder="SUMMONER#EUW" />
       <button (click)="initSummonerSearch()" class="search-btn">SEARCH</button>
     </div>
 
