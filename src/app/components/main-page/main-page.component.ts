@@ -54,7 +54,7 @@ export class MainPageComponent {
     const puuidData = (await this.api.callApi(
       this.api.URL_GET_PUUID
     )) as PuuidData;
-    this.api.puuid = puuidData.puuid;
+    this.assignPUUID(puuidData)
     this.api.initURLS();
   }
 
@@ -63,8 +63,7 @@ export class MainPageComponent {
       this.api.URL_GET_SUMMONERID
     )) as SummonerID;
     this.api.summonerID = summonerID.id;
-    this.summonerLevel = summonerID.summonerLevel;
-    this.profileIconId = summonerID.profileIconId;
+    this.assignSummonerDetails(summonerID);
     this.api.initURLS();
   }
 
@@ -72,12 +71,25 @@ export class MainPageComponent {
     const rankedData = (await this.api.callApi(
       this.api.URL_GET_RANKED_DATA
     )) as RankedData;
-    
+    this.assignRankedStats(rankedData)
+    this.loadingDone = true;
+  }
+
+
+  assignSummonerDetails(summonerID: SummonerID){
+    this.summonerLevel = summonerID.summonerLevel;
+    this.profileIconId = summonerID.profileIconId;
+  }
+
+  assignRankedStats(rankedData: RankedData){
     this.rank = rankedData[0].tier;
     this.divison = rankedData[0].rank;
     this.lp = rankedData[0].leaguePoints;
     this.wins = rankedData[0].wins;
     this.losses = rankedData[0].losses;
-    this.loadingDone = true;
+  }
+
+  assignPUUID(puuidData:PuuidData){
+    this.api.puuid = puuidData.puuid;
   }
 }

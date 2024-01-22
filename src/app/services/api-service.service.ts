@@ -14,7 +14,7 @@ export class ApiServiceService {
   puuid: string | PuuidData = '';
   summonerID: string = ''
   accountJSON: any;
-  DEV_API_KEY: string = 'RGAPI-94442bea-ecd9-4055-9df6-667f0741fb26';
+  DEV_API_KEY: string = '';
   URL_GET_PUUID: string = '';
   URL_GET_SUMMONERID: string = '';
   URL_GET_RANKED_DATA: string = '';
