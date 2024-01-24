@@ -40,5 +40,4 @@ export class ApiServiceService {
   /* THE URL BELOW IS FOR GETTING LIVE GAME DATA. CURRENTLY TESTING API CALLS */
   /* const url = `https://127.0.0.1:2999/liveclientdata/allgamedata` */
 
-
 }
