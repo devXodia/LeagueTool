@@ -24,7 +24,7 @@
 .search-container{
     display: flex;
     height: 4cap;
-    
+    position: relative;
     width: 500px;
     
     input{
@@ -57,14 +57,13 @@
 .interaction-container{
     display: flex;
     flex-direction: column;
+    gap: 50px;
     
 }
 
 .stats-container{
     display: flex;
     gap: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
     color: white;
     ul{
         display: flex;
@@ -74,5 +73,12 @@
         padding: 0;
    list-style-type: none;
     }
+    
+}
+
+.searchError{
+    color: red;
+    margin: 0 !important;
+    font-size: 18px;
     
 }

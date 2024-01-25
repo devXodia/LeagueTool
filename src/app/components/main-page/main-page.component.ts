@@ -24,6 +24,7 @@ export class MainPageComponent {
   losses: number = 0;
   profileIconId: string = '';
   summonerLevel: number = 0;
+  searchError: boolean = false;
 
   constructor(private api: ApiServiceService) {}
 
@@ -39,6 +40,12 @@ export class MainPageComponent {
   splitName() {
     if (this.name.includes(' ')) {
       this.name = this.name.replaceAll(' ', '');
+    }
+    if (!this.name.includes('#')){
+      this.searchError = true;
+    }
+    if(this.name.includes('#')){
+      this.searchError = false;
     }
     const split = this.name.split('#');
     this.summonerName = split[0];
