@@ -25,6 +25,7 @@ export class MainPageComponent {
   profileIconId: string = '';
   summonerLevel: number = 0;
   searchError: boolean = false;
+  winrate: string = '0%';
 
   constructor(private api: ApiServiceService) {}
 
@@ -79,9 +80,14 @@ export class MainPageComponent {
       this.api.URL_GET_RANKED_DATA
     )) as RankedData;
     this.assignRankedStats(rankedData)
+    this.calcWinrate();
     this.loadingDone = true;
   }
 
+  calcWinrate(){
+    const sum = this.wins + this.losses;
+    this.winrate = Math.round((this.wins / sum) * 100) + "%"
+  }
 
   assignSummonerDetails(summonerID: SummonerID){
     this.summonerLevel = summonerID.summonerLevel;
