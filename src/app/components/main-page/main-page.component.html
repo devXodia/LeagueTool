@@ -24,6 +24,11 @@
         <li>Winrate: {{ this.winrate }}</li>
       </ul>
 
+      <div class="profile">
+        <img src="../../../assets/img/profileicons/{{ this.profileIconId }}.png">
+        <span>{{this.summonerName}}</span>
+      </div>
+
       }
       @if(searchError){
         <h5 class="searchError">Missing SummonerTag e.g #EUW. Please type your full SummonerTag.</h5>

@@ -79,6 +79,7 @@ export class MainPageComponent {
     const rankedData = (await this.api.callApi(
       this.api.URL_GET_RANKED_DATA
     )) as RankedData;
+    
     this.assignRankedStats(rankedData)
     this.calcWinrate();
     this.loadingDone = true;
@@ -92,6 +93,7 @@ export class MainPageComponent {
   assignSummonerDetails(summonerID: SummonerID){
     this.summonerLevel = summonerID.summonerLevel;
     this.profileIconId = summonerID.profileIconId;
+    console.log(this.profileIconId)
   }
 
   assignRankedStats(rankedData: RankedData){
