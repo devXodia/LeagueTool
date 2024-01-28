@@ -93,7 +93,6 @@ export class MainPageComponent {
   assignSummonerDetails(summonerID: SummonerID){
     this.summonerLevel = summonerID.summonerLevel;
     this.profileIconId = summonerID.profileIconId;
-    console.log(this.profileIconId)
   }
 
   assignRankedStats(rankedData: RankedData){
