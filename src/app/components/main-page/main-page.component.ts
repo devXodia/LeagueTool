@@ -79,7 +79,6 @@ export class MainPageComponent  {
     const rankedData = (await this.api.callApi(
       this.api.URL_GET_RANKED_DATA
     )) as RankedData;
-    console.log(rankedData)
     this.assignRankedStats(rankedData)
     this.calcWinrate();
     this.loadingDone = true;
