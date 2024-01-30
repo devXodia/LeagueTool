@@ -26,7 +26,8 @@
     height: 4cap;
     position: relative;
     width: 500px;
-    
+    z-index: 3;
+    align-self: center;
     input{
         width:80%;
         font-size: 18px;
@@ -65,6 +66,7 @@
     display: flex;
     gap: 50px;
     color: white;
+    
     ul{
         display: flex;
         flex-direction: column;
@@ -88,9 +90,39 @@
     flex-direction: column;
     gap: 18px;
     text-align: center;
-    img{
-        width: 60px;
-        height: 60px;
-        border-radius: 100%;
-    }
+    width: 150px;
+    height: 150px;
+    position: relative;
+    
+}
+
+.icon-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.summonerIcon{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: absolute;
+    top: 10%;
+  
+}
+
+.wings{
+    position: absolute;
+    width: 183px;
+    height: 240px;
+    top: -100px;
+    z-index: 2;
+}
+
+.summonerName{
+    margin-top: -49px;
 }

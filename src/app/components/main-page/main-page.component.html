@@ -13,6 +13,15 @@
     <div class="stats-container">
       @if(loadingDone){
 
+        <div class="profile">
+          <div class="icon-container">
+            <img class="wings" #wings src="../../../assets/img/tier_wings/{{ this.rank }}.png">
+          <img class="summonerIcon" #icon src="../../../assets/img/profileicons/{{ this.profileIconId }}.png">
+  
+        </div>
+          <span class="summonerName" #name>{{this.summonerName}}</span>
+        </div>
+
       <ul>
         <li>Rank: {{ this.rank }} {{ this.divison }} {{this.lp}} LP</li>
         <li>Wins: {{ this.wins }}</li>
@@ -24,10 +33,7 @@
         <li>Winrate: {{ this.winrate }}</li>
       </ul>
 
-      <div class="profile">
-        <img src="../../../assets/img/profileicons/{{ this.profileIconId }}.png">
-        <span>{{this.summonerName}}</span>
-      </div>
+      
 
       }
       @if(searchError){

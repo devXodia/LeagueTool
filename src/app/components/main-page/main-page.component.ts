@@ -11,7 +11,7 @@ import { RankedJson } from '../../Interfaces/rankedJson.interface';
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
-export class MainPageComponent {
+export class MainPageComponent  {
   name: string = '';
   summonerName = '';
   tag: string = '';
@@ -79,7 +79,7 @@ export class MainPageComponent {
     const rankedData = (await this.api.callApi(
       this.api.URL_GET_RANKED_DATA
     )) as RankedData;
-    
+    console.log(rankedData)
     this.assignRankedStats(rankedData)
     this.calcWinrate();
     this.loadingDone = true;
@@ -106,4 +106,6 @@ export class MainPageComponent {
   assignPUUID(puuidData:PuuidData){
     this.api.puuid = puuidData.puuid;
   }
+
+
 }
